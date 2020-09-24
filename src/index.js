@@ -7,6 +7,7 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import "@clayui/css/lib/css/atlas.css";
 import { ClayIconSpriteContext } from "@clayui/icon";
+import ClayLayout from "@clayui/layout";
 
 function App() {
   // State for controlling the rating slider
@@ -30,36 +31,42 @@ function App() {
               {"Let's add some Clay components to see the magic happen!"}
             </ClayAlert>
 
-            <ClayForm.Group>
-              <label>{"Name"}</label>
-              <ClayInput
-                aria-label="Input for name"
-                placeholder="Insert your name"
-              />
-            </ClayForm.Group>
+            <ClayLayout.Row>
+              <ClayLayout.Col lg="4">
+                <ClayForm.Group>
+                  <label>{"Name"}</label>
+                  <ClayInput
+                    aria-label="Input for name"
+                    placeholder="Insert your name"
+                  />
+                </ClayForm.Group>
+              </ClayLayout.Col>
 
-            <ClayForm.Group>
-              <label>{"Gender"}</label>
-              <ClaySelectWithOption
-                aria-label="Select for gender"
-                defaultValue="other"
-                options={[
-                  {
-                    label: "Male",
-                    value: "male"
-                  },
-                  {
-                    label: "Female",
-                    value: "female"
-                  },
-                  {
-                    label: "Other",
-                    value: "other"
-                  }
-                ]}
-                placeholder="Insert your age"
-              />
-            </ClayForm.Group>
+              <ClayLayout.Col>
+                <ClayForm.Group>
+                  <label>{"Gender"}</label>
+                  <ClaySelectWithOption
+                    aria-label="Select for gender"
+                    defaultValue="other"
+                    options={[
+                      {
+                        label: "Male",
+                        value: "male"
+                      },
+                      {
+                        label: "Female",
+                        value: "female"
+                      },
+                      {
+                        label: "Other",
+                        value: "other"
+                      }
+                    ]}
+                    placeholder="Insert your age"
+                  />
+                </ClayForm.Group>
+              </ClayLayout.Col>
+            </ClayLayout.Row>
 
             <ClayForm.Group>
               <label>{"From 0 to 100, which is your satisfaction level?"}</label>
