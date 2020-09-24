@@ -3,11 +3,13 @@ import ClayForm, {ClaySelectWithOption, ClayToggle} from "@clayui/form";
 import ClaySlider from "@clayui/slider";
 import ClayMultiSelect from "@clayui/multi-select";
 import {ClayInput} from "@clayui/form";
+import ClayButton, { ClayButtonWithIcon } from "@clayui/button";
 import * as React from "react";
 import ReactDOM from "react-dom";
 import "@clayui/css/lib/css/atlas.css";
 import { ClayIconSpriteContext } from "@clayui/icon";
 import ClayLayout from "@clayui/layout";
+import { ClayDropDownWithItems } from "@clayui/drop-down";
 
 function App() {
   // State for controlling the rating slider
@@ -27,6 +29,7 @@ function App() {
       <div className="App">
         <ClayForm>
           <div className="sheet">
+            <h1>{'Personal Information Form'}</h1>
             <ClayAlert displayType="info" title="Hello">
               {"Let's add some Clay components to see the magic happen!"}
             </ClayAlert>
@@ -90,6 +93,33 @@ function App() {
                 onChange={setValueTeams}
                 onItemsChange={setTeams}
               />
+            </ClayForm.Group>
+
+            <ClayForm.Group>
+                <ClayButton.Group>
+                  <ClayButton type="button">
+                      {'Submit'}
+                  </ClayButton>
+                  <ClayDropDownWithItems
+                    items={[
+                      {
+                        label: 'Set as a draft',
+                        onClick: () => alert('Settled as a draft')
+                      },
+                      {
+                        label: 'Reset whole fields',
+                        onClick: () => alert('Form Fields will be reseted')
+                      }
+                    ]}
+                    trigger={
+                      <ClayButtonWithIcon
+                        aria-label="Click for more actions"
+                        monospaced
+                        symbol="caret-bottom"
+                      />
+                    }
+                  />
+              </ClayButton.Group>
             </ClayForm.Group>
           </div>
         </ClayForm>
